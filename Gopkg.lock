@@ -22,20 +22,20 @@
 [[projects]]
   branch = "master"
   name = "github.com/relab/byzq"
-  packages = [".","gbench"]
-  revision = "48eba373a89bc00f7199f1e732deba4c9dbf136c"
+  packages = ["."]
+  revision = "84541119b92fb7a2974be9565813a74d128a2bf7"
 
 [[projects]]
   branch = "master"
   name = "github.com/relab/gorums"
-  packages = [".","dev","gbench"]
-  revision = "5555185ced4bac37fd03f43fe6c12fb2c9f41557"
+  packages = [".","dev"]
+  revision = "0ffb032453aed3792b39ee1699c0b8a567a4107a"
 
 [[projects]]
   branch = "master"
   name = "github.com/relab/gridq"
-  packages = [".","gbench"]
-  revision = "9f74cb9056044d916fb21753c0cf731cba0b40ef"
+  packages = ["."]
+  revision = "5c658ac7eb89218652d7bdee9022e30c5c88081b"
 
 [[projects]]
   branch = "master"
@@ -82,6 +82,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b5a7e43343acee4bac27eabbe8cba3001b2f30978ad412c191e5c630e28b5cce"
+  inputs-digest = "d8a8bd1fb94d4811d5248e53ba96430fd666bb7302995f6a50559e48997d0683"
   solver-name = "gps-cdcl"
   solver-version = 1
