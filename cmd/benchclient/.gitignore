@@ -1,4 +1,5 @@
 benchclient
+grpc-*.txt
 gorums-*.txt
 gridq-*.txt
 uncorrected_gorums-*.txt
