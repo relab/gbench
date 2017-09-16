@@ -10,9 +10,7 @@ import (
 	"strings"
 	"time"
 
-	byzbench "github.com/relab/byzq/gbench"
-	"github.com/relab/gorums/gbench"
-	gridbench "github.com/relab/gridq/gbench"
+	"github.com/relab/gbench"
 
 	"github.com/tylertreat/bench"
 	"github.com/tylertreat/hdrhistogram-writer"
@@ -112,7 +110,7 @@ func main() {
 			Concurrent:        *grpcc,
 		}
 	case byzq:
-		factory = &byzbench.ByzqRequesterFactory{
+		factory = &gbench.ByzqRequesterFactory{
 			Addrs:             addrs,
 			PayloadSize:       *psize,
 			QCTimeout:         *timeout,
@@ -120,7 +118,7 @@ func main() {
 			NoAuth:            *noauth,
 		}
 	case gridq:
-		factory = &gridbench.GridQRequesterFactory{
+		factory = &gbench.GridQRequesterFactory{
 			Addrs:             addrs,
 			ReadQuorum:        *readq,
 			WriteQuorum:       *writeq,
