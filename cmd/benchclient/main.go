@@ -11,6 +11,7 @@ import (
 	"time"
 
 	byzbench "github.com/relab/byzq/gbench"
+	"github.com/relab/gorums/gbench"
 	gridbench "github.com/relab/gridq/gbench"
 
 	"github.com/tylertreat/bench"
@@ -93,23 +94,23 @@ func main() {
 
 	var factory bench.RequesterFactory
 	switch *mode {
-	// case gorums:
-	// 	factory = &gbench.GorumsRequesterFactory{
-	// 		Addrs:             addrs,
-	// 		ReadQuorum:        *readq,
-	// 		WriteQuorum:       *writeq,
-	// 		PayloadSize:       *psize,
-	// 		QCTimeout:         *timeout,
-	// 		WriteRatioPercent: *writera,
-	// 	}
-	// case grpc:
-	// 	factory = &gbench.GrpcRequesterFactory{
-	// 		Addrs:             addrs,
-	// 		PayloadSize:       *psize,
-	// 		Timeout:           *timeout,
-	// 		WriteRatioPercent: *writera,
-	// 		Concurrent:        *grpcc,
-	// 	}
+	case gorums:
+		factory = &gbench.GorumsRequesterFactory{
+			Addrs:             addrs,
+			ReadQuorum:        *readq,
+			WriteQuorum:       *writeq,
+			PayloadSize:       *psize,
+			QCTimeout:         *timeout,
+			WriteRatioPercent: *writera,
+		}
+	case grpc:
+		factory = &gbench.GrpcRequesterFactory{
+			Addrs:             addrs,
+			PayloadSize:       *psize,
+			Timeout:           *timeout,
+			WriteRatioPercent: *writera,
+			Concurrent:        *grpcc,
+		}
 	case byzq:
 		factory = &byzbench.ByzqRequesterFactory{
 			Addrs:             addrs,
