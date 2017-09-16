@@ -11,6 +11,8 @@ import (
 	"time"
 
 	byzbench "github.com/relab/byzq/gbench"
+	gridbench "github.com/relab/gridq/gbench"
+
 	"github.com/tylertreat/bench"
 	"github.com/tylertreat/hdrhistogram-writer"
 )
@@ -116,15 +118,15 @@ func main() {
 			WriteRatioPercent: *writera,
 			NoAuth:            *noauth,
 		}
-		// case gridq:
-		// 	factory = &gbench.GridQRequesterFactory{
-		// 		Addrs:             addrs,
-		// 		ReadQuorum:        *readq,
-		// 		WriteQuorum:       *writeq,
-		// 		PayloadSize:       *psize,
-		// 		QCTimeout:         *timeout,
-		// 		WriteRatioPercent: *writera,
-		// 	}
+	case gridq:
+		factory = &gridbench.GridQRequesterFactory{
+			Addrs:             addrs,
+			ReadQuorum:        *readq,
+			WriteQuorum:       *writeq,
+			PayloadSize:       *psize,
+			QCTimeout:         *timeout,
+			WriteRatioPercent: *writera,
+		}
 	}
 
 	benchmark := bench.NewBenchmark(factory, uint64(*brrate), uint64(*bconns), *bdur, uint64(*bburst))
